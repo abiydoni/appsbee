@@ -31,8 +31,10 @@ $nama = $row ? htmlspecialchars($row['nama']) : "appsBee";
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-6 rounded-lg shadow-lg text-center w-96">
         <h1 class="text-2xl font-bold text-gray-800">Selamat Datang</h1>
-        <a href="#" class="text-blue-600 font-semibold"><?php echo $nama; ?></a>
-        <img src="img/appsBee.png" alt="Logo appsBee" class="w-12 h-12">
+        <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+            <img src="img/<?php echo $row['logo']; ?>" alt="Logo appsBee" class="w-24 h-24 mb-4">
+            <a href="#" class="text-blue-600 font-semibold text-lg"><?php echo $nama; ?></a>
+        </div>
         <p class="text-gray-600 mt-2">Aplikasi ini mendukung offline mode</p>
         <button id="reloadButton" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow hidden">
             Perbarui Sekarang
