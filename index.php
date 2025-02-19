@@ -10,7 +10,7 @@
     <div class="bg-white p-6 rounded-lg shadow-lg text-center w-96">
         <h1 class="text-2xl font-bold text-gray-800">Selamat Datang</h1>
         <p class="text-gray-600 mt-2">Aplikasi ini mendukung offline mode</p>
-        <button id="reloadButton" class="hidden mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow">
+        <button id="reloadButton" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow">
             Perbarui Sekarang
         </button>
     </div>
