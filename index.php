@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // if (!isset($_SESSION['user'])) {
 //     header('Location: ../login.php'); // Redirect to login page
 //     exit;
@@ -11,13 +11,9 @@ session_start();
 
 // Include the database connection
 include 'api/db.php';
-// Prepare the SQL statement to select only today's shift
-$stmt = $pdo->prepare("
-    SELECT * 
-    FROM tb_profil 
-    WHERE 1
-");
-$stmt->bindParam(':currentDay', $currentDay);
+
+// Ambil semua data dari tb_profil
+$stmt = $pdo->prepare("SELECT * FROM tb_profil");
 $stmt->execute();
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -34,7 +30,7 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="bg-white p-6 rounded-lg shadow-lg text-center w-96">
         <h1 class="text-2xl font-bold text-gray-800">Selamat Datang</h1>
         <p class="text-gray-600 mt-2">Aplikasi ini mendukung offline mode</p>
-        <button id="reloadButton" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow">
+        <button id="reloadButton" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow hidden">
             Perbarui Sekarang
         </button>
     </div>
@@ -47,12 +43,14 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 registration.onupdatefound = () => {
                     const newWorker = registration.installing;
-                    newWorker.onstatechange = () => {
-                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                            console.log('Versi baru tersedia!');
-                            document.getElementById('reloadButton').classList.remove('hidden');
-                        }
-                    };
+                    if (newWorker) {
+                        newWorker.onstatechange = () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                console.log('Versi baru tersedia!');
+                                document.getElementById('reloadButton').classList.remove('hidden');
+                            }
+                        };
+                    }
                 };
             })
             .catch((error) => console.error('Gagal mendaftarkan Service Worker:', error));
