@@ -12,10 +12,12 @@
 // Include the database connection
 include 'api/db.php';
 
-// Ambil semua data dari tb_profil
-$stmt = $pdo->prepare("SELECT * FROM tb_profil");
+// Ambil nama dari tb_profil (sesuaikan query jika perlu)
+$stmt = $pdo->prepare("SELECT nama FROM tb_profil LIMIT 1"); 
 $stmt->execute();
-$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$nama = $row ? htmlspecialchars($row['nama']) : "appsBee";
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,7 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>appsBee</title>
+    <title><?php echo $nama; ?> | Platform Manajemen Data</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
