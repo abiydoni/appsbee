@@ -32,7 +32,9 @@ $nama = $row ? htmlspecialchars($row['nama']) : "appsBee";
     <div class="bg-white p-6 rounded-lg shadow-lg text-center w-96">
         <h1 class="text-2xl font-bold text-gray-800">Selamat Datang</h1>
         <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            <img src="img/<?php echo $row['logo']; ?>" alt="Logo appsBee" class="w-24 h-24 mb-4">
+            <img src="uploads/<?php echo htmlspecialchars($row['logo'] ?? 'default-logo.png'); ?>" 
+                alt="Logo" 
+                class="w-20 h-20 mb-2">
             <a href="#" class="text-blue-600 font-semibold text-lg"><?php echo $nama; ?></a>
         </div>
         <p class="text-gray-600 mt-2">Aplikasi ini mendukung offline mode</p>
