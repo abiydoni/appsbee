@@ -1,3 +1,27 @@
+<?php
+session_start();
+// if (!isset($_SESSION['user'])) {
+//     header('Location: ../login.php'); // Redirect to login page
+//     exit;
+// }
+// if ($_SESSION['user']['role'] !== 'admin') {
+//     header('Location: ../login.php'); // Redirect to unauthorized page
+//     exit;
+// }
+
+// Include the database connection
+include 'api/db.php';
+// Prepare the SQL statement to select only today's shift
+$stmt = $pdo->prepare("
+    SELECT * 
+    FROM tb_profil 
+    WHERE 1
+");
+$stmt->bindParam(':currentDay', $currentDay);
+$stmt->execute();
+$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
