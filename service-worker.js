@@ -1,12 +1,6 @@
 importScripts("/config.php"); // Mengambil versi cache dari PHP
 
-const ASSETS_TO_CACHE = [
-  "/",
-  "/styles.css?v=" + CACHE_VERSION,
-  "/script.js?v=" + CACHE_VERSION,
-  "/appsBee.png",
-  "/fallback.php",
-];
+const ASSETS_TO_CACHE = ["/", "/appsBee.png", "/fallback.php"];
 
 self.addEventListener("install", (event) => {
   console.log("Service Worker: Installing...");
