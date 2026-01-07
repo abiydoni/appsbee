@@ -129,22 +129,7 @@
                 <!-- Clock will be inserted here -->
             </div>
 
-            <!-- IP Address -->
-            <div data-aos="fade-down" data-aos-duration="1000" class="mb-10 font-mono text-slate-500 text-sm tracking-widest">
-                <?php
-                    $ips = gethostbynamel(gethostname());
-                    $localIP = '127.0.0.1';
-                    if ($ips) {
-                        foreach ($ips as $ip) {
-                            if ($ip !== '127.0.0.1' && filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
-                                $localIP = $ip;
-                                break;
-                            }
-                        }
-                    }
-                ?>
-                IP: <?= $localIP ?>
-            </div>
+
 
             <!-- Badge -->
             <div data-aos="fade-down" data-aos-duration="1000" class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-10 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-shadow cursor-default">
