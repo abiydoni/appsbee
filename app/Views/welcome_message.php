@@ -124,6 +124,11 @@
     <section class="relative pt-48 pb-32 px-6 lg:px-8 min-h-screen flex items-center justify-center overflow-hidden">
         <div class="max-w-6xl mx-auto text-center relative z-10 w-full">
             
+            <!-- Real-time Clock -->
+            <div data-aos="fade-down" data-aos-duration="1000" class="mb-6 font-mono text-blue-400 text-lg md:text-xl font-bold tracking-wider" id="realtime-clock">
+                <!-- Clock will be inserted here -->
+            </div>
+
             <!-- Badge -->
             <div data-aos="fade-down" data-aos-duration="1000" class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-10 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-shadow cursor-default">
                 <span class="relative flex h-3 w-3">
@@ -369,6 +374,25 @@
                     });
                 });
             });
+
+            // Real-time Clock Logic
+            function updateClock() {
+                const now = new Date();
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric', 
+                    hour: '2-digit', 
+                    minute: '2-digit', 
+                    second: '2-digit',
+                    hour12: false
+                };
+                const formattedTime = now.toLocaleString('id-ID', options);
+                document.getElementById('realtime-clock').innerText = formattedTime;
+            }
+            setInterval(updateClock, 1000);
+            updateClock(); // Initial call
         });
     </script>
 </body>
