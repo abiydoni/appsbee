@@ -131,7 +131,7 @@
 
             <!-- IP Address -->
             <div data-aos="fade-down" data-aos-duration="1000" class="mb-10 font-mono text-slate-500 text-sm tracking-widest">
-                IP: <?= service('request')->getIPAddress() ?>
+                IP: <span id="user-ip">Mendeteksi...</span>
             </div>
 
             <!-- Badge -->
@@ -398,6 +398,16 @@
             }
             setInterval(updateClock, 1000);
             updateClock(); // Initial call
+
+            // Fetch Public IP
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('user-ip').innerText = data.ip;
+                })
+                .catch(error => {
+                    document.getElementById('user-ip').innerText = 'Gagal memuat IP';
+                });
         });
     </script>
 </body>
