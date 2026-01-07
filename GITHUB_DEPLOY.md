@@ -70,8 +70,25 @@ Jika tidak ada Terminal:
 ## 6. Pertanyaan Umum (FAQ)
 
 ### Q: Apakah perlu install `node_modules` di cPanel?
-**JAWAB**: **TIDAK PERLU**. 
-Kita menggunakan Tailwind CSS hanya untuk "memasak" file CSS di komputer lokal. Hasil masakan tersebut ada di `public/css/app.css`. File inilah yang kita upload. Server cPanel hanya perlu menyajikan file CSS yang sudah jadi itu. Jadi, Anda tidak perlu install Node.js atau NPM di hosting.
+**JAWAB**: **TIDAK PERLU**. Anda hanya perlu upload file `public/css/app.css` yang sudah jadi dari komputer Anda.
 
-### Q: Error "403 Forbidden" atau muncul daftar folder?
-Pastikan file `index.php` ada di folder utama domain Anda (`/home2/appsbeem/home.appsbee.my.id`). Jika file `index.php` masih ada di dalam subfolder `public`, pindahkan semua isi folder `public` ke folder utama tersebut (lihat Panduan Deploy Manual - Opsi 2).
+### Q: Bagaimana cara menjalankan aplikasi di server? Perlu `npm run dev` atau `php spark serve`?
+**JAWAB**: **TIDAK PERLU COMMAND APAPUN UNTUK START**.
+Karena ini Shared Hosting (PHP), aplikasi Anda **otomatis berjalan** lewat Web Server (Apache/LiteSpeed).
+- **Jangan** jalankan `php spark serve` (itu cuma buat di laptop).
+- **Jangan** jalankan `npm run dev` (itu cuma buat bikin CSS di laptop).
+- Cukup buka **https://home.appsbee.my.id** di browser, website langsung tampil.
+
+### Q: Error "403 Forbidden" atau muncul daftar folder (File Manager)?
+**PENYEBAB**: Server Anda membuka folder utama, padahal file pembuka (`index.php`) ada di dalam folder `public`.
+
+**SOLUSI TERCEPAT (Tanpa Pindah Folder)**:
+Saya sudah membuatkan file **`.htaccess`** di folder utama yang otomatis mengarahkan pengunjung ke folder `public`.
+1.  Pastikan file `.htaccess` ini ikut ter-upload ke cPanel.
+2.  Refresh website Anda.
+
+**SOLUSI ALTERNATIF (Pindah Folder)**:
+Jika cara di atas gagal:
+1.  Masuk ke folder `/home2/appsbeem/home.appsbee.my.id`.
+2.  Pindahkan **SEMUA isi** folder `public` (index.php, .htaccess, css, dll) ke folder utama.
+3.  Edit `index.php` yang baru dipindah: `require FCPATH . 'app/Config/Paths.php';` (Hapus `../`).

@@ -2,7 +2,7 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <title>Appsbee - Solusi Digital Masa Depan</title>
+    <title>appsbee - Solusi Digital Masa Depan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= base_url('css/app.css') ?>">
     
@@ -90,7 +90,7 @@
                         <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-white to-slate-400">A</span>
                     </div>
                 </div>
-                <span class="text-2xl font-bold tracking-tight text-white group-hover:text-glow transition-all brand-font">Appsbee</span>
+                <span class="text-2xl font-bold tracking-tight text-white group-hover:text-glow transition-all brand-font">appsbee</span>
             </div>
             
             <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
@@ -139,7 +139,7 @@
                     <span class="inline-block">Selamat Datang di</span>
                 </div>
                 <div class="overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                    <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 animate-gradient-x pb-4">Appsbee</span>
+                    <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 animate-gradient-x pb-4">appsbee</span>
                 </div>
             </h1>
 
@@ -246,11 +246,11 @@
             <div>
                  <div class="flex items-center gap-2 mb-6">
                     <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center font-bold text-slate-900">A</div>
-                    <span class="text-xl font-bold tracking-tight text-white">Appsbee</span>
+                    <span class="text-xl font-bold tracking-tight text-white">appsbee</span>
                 </div>
                 <p class="max-w-sm mb-6">
                     Memberdayakan bisnis dengan solusi digital terkini.
-                    <br>&copy; <?= date('Y') ?> Appsbee. Hak cipta dilindungi undang-undang.
+                    <br>&copy; <?= date('Y') ?> appsbee. Hak cipta dilindungi undang-undang.
                 </p>
             </div>
             <div class="grid grid-cols-2 gap-8 md:justify-items-end">
@@ -285,7 +285,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const codeContainer = document.getElementById('code-container');
             const codeSnippets = [
-                '<?php', '</div>', 'const', 'import', 'function()', 
+                '<' + '?php', '</div>', 'const', 'import', 'function()', 
                 '=>', '&&', '||', 'return', 'class', 
                 '#include', 'echo', 'print', '[]', '{}', 
                 'git push', 'npm i', '0', '1', '// TODO'
