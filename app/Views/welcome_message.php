@@ -129,6 +129,11 @@
                 <!-- Clock will be inserted here -->
             </div>
 
+            <!-- IP Address -->
+            <div data-aos="fade-down" data-aos-duration="1000" class="mb-10 font-mono text-slate-500 text-sm tracking-widest">
+                IP: <?= service('request')->getIPAddress() ?>
+            </div>
+
             <!-- Badge -->
             <div data-aos="fade-down" data-aos-duration="1000" class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-10 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-shadow cursor-default">
                 <span class="relative flex h-3 w-3">
