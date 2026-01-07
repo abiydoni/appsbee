@@ -1,0 +1,72 @@
+#--------------------------------------------------------------------
+# CodeIgniter 4 Defaults
+#--------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+.phpintel/
+
+# Environment settings
+.env
+.env.test
+.env.production
+
+# Chaos
+writable/cache/*
+!writable/cache/index.html
+writable/logs/*
+!writable/logs/index.html
+writable/session/*
+!writable/session/index.html
+writable/uploads/*
+!writable/uploads/index.html
+writable/debugbar/*
+!writable/debugbar/.gitkeep
+
+# Logs
+php_errors.log
+
+# PHPUnit
+tests/coverage/
+.phpunit.cache
+phpunit.xml
+
+# Composer
+vendor/
+
+#--------------------------------------------------------------------
+# Node.js / Tailwind CSS
+#--------------------------------------------------------------------
+node_modules/
+npm-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# We DO want to commit the built CSS for shared hosting
+# public/css/app.css  <-- Do NOT ignore this
