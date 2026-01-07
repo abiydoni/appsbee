@@ -143,7 +143,7 @@
                         }
                     }
                 ?>
-                IPv4: <?= $localIP ?>
+                IP: <?= $localIP ?>
             </div>
 
             <!-- Badge -->
