@@ -131,7 +131,19 @@
 
             <!-- IP Address -->
             <div data-aos="fade-down" data-aos-duration="1000" class="mb-10 font-mono text-slate-500 text-sm tracking-widest">
-                IPv4: <?= getHostByName(getHostName()) ?>
+                <?php
+                    $ips = gethostbynamel(gethostname());
+                    $localIP = '127.0.0.1';
+                    if ($ips) {
+                        foreach ($ips as $ip) {
+                            if ($ip !== '127.0.0.1' && filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+                                $localIP = $ip;
+                                break;
+                            }
+                        }
+                    }
+                ?>
+                IPv4: <?= $localIP ?>
             </div>
 
             <!-- Badge -->
